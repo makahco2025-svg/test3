@@ -17,23 +17,60 @@
         .admin-btn { background-color: var(--primary-color); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: 500; transition: background-color 0.3s; }
         .admin-btn:hover { background-color: #0056b3; }
         .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
-        .product-card { background-color: var(--card-bg); border-radius: 8px; box-shadow: var(--shadow); overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+        
+        /* === تعطيلات منع النسخ === */
+        .no-select {
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Standard syntax */
+        }
+        .product-card { 
+            background-color: var(--card-bg); 
+            border-radius: 8px; 
+            box-shadow: var(--shadow); 
+            overflow: hidden; 
+            transition: transform 0.3s, box-shadow 0.3s; 
+            position: relative;
+        }
         .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
         .product-image { width: 100%; height: 200px; object-fit: cover; }
         .product-info { padding: 20px; }
         .product-info h3 { font-size: 1.2rem; margin-bottom: 10px; }
         .product-info p { color: var(--secondary-color); font-size: 0.9rem; margin-bottom: 15px; }
         .product-price { font-size: 1.3rem; font-weight: 700; color: var(--primary-color); }
+
         /* --- Modal Styles --- */
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); align-items: center; justify-content: center; }
-        .modal-content { background-color: var(--card-bg); padding: 30px; border-radius: 8px; width: 90%; max-width: 500px; text-align: right; position: relative; }
+        .modal-content { 
+            background-color: var(--card-bg); 
+            padding: 30px; 
+            border-radius: 8px; 
+            width: 90%; 
+            max-width: 500px; 
+            text-align: right; 
+            position: relative; 
+        }
         .close-btn { position: absolute; top: 15px; left: 15px; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--secondary-color); }
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; margin-bottom: 8px; font-weight: 500; }
-        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 5px; font-family: 'Tajawal', sans-serif; }
+        .form-group input, .form-group textarea { 
+            width: 100%; 
+            padding: 10px; 
+            border: 1px solid var(--border-color); 
+            border-radius: 5px; 
+            font-family: 'Tajawal', sans-serif;
+        }
         .form-group textarea { resize: vertical; }
         .form-actions { display: flex; gap: 10px; justify-content: flex-end; }
-        .btn { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: 500; transition: background-color 0.3s; }
+        .btn { 
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-weight: 500; 
+            transition: background-color 0.3s; 
+        }
         .btn-primary { background-color: var(--primary-color); color: white; }
         .btn-primary:hover { background-color: #0056b3; }
         .btn-secondary { background-color: var(--secondary-color); color: white; }
@@ -95,7 +132,7 @@
         function renderProducts() {
             const grid = document.getElementById('productsGrid');
             grid.innerHTML = products.map(product => `
-                <div class="product-card">
+                <div class="product-card no-select">
                     <img src="${product.image}" alt="${product.name}">
                     <div class="product-info">
                         <h3>${product.name}</h3>
@@ -112,15 +149,13 @@
             const form = document.getElementById('productForm');
             
             if (productId) {
-                // إذا كان هناك ID، املأ النموذج ببيانات المنتج المحدد للتعديل
                 const product = products.find(p => p.id === productId);
                 document.getElementById('productId').value = product.id;
                 document.getElementById('productName').value = product.name;
                 document.getElementById('productPrice').value = product.price;
-                document.getElementById('productImage').value = product.image;
+                document.getElementById('productImage'). value = product.image;
                 document.getElementById('productDescription').value = product.description;
             } else {
-                // إذا لم يكن هناك ID، فهذا منتج جديد، قم بإفراغ النموذج
                 form.reset();
             }
             
@@ -133,7 +168,7 @@
 
         // --- منطق التعديل والحفظ ---
         document.getElementById('productForm').addEventListener('submit', async function(event) {
-            event.preventDefault(); // منع إعادة تحميل الصفحة
+            event.preventDefault();
 
             const productId = document.getElementById('productId').value;
             const data = {
@@ -143,64 +178,60 @@
                 description: document.getElementById('productDescription').value
             };
 
-            // رابط API الخاص بك من sheet.best
             const apiUrl = 'https://api.sheetbest.com/sheets/eafe4e82-2138-4c23-a69f-a89ad21d4bdd';
 
-            try {
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                });
+            const submitButton = event.target.querySelector('.btn-primary');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'جاري الحفظ...';
+            submitButton.disabled = true;
 
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
                 if (!response.ok) {
-                    throw new Error('فشل في حفظ البيانات');
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
-
-                const result = await response.json();
+                return response.json();
+            })
+            .then(result => {
                 console.log('تم الحفظ بنجاح:', result);
-
-                // عرض رسالة نجاح للمستخدم
                 alert('تم حفظ التغييرات بنجاح!');
-
-                // إغلاق النافذة
                 closeAdminModal();
-
-                // إعادة جلب البيانات المحدثة وعرضها لجميع المستخدمين
-                await fetchAndRenderProducts();
-
-            } catch (error) {
+                fetchAndRenderProducts();
+            })
+            .catch(error => {
                 console.error('Error:', error);
-                alert('حدث خطأ ما، يرجى المحاولة مرة أخرى.');
-            }
+                alert('حدث خطأ ما: ' + error.message);
+            })
+            .finally(() => {
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            });
         });
 
         // --- دالة جديدة لجلب البيانات من API وعرضها ---
         async function fetchAndRenderProducts() {
-            // رابط API الخاص بك من sheet.best
             const apiUrl = 'https://api.sheetbest.com/sheets/eafe4e82-2138-4c23-a69f-a89ad21d4bdd';
             
-            try {
-                const response = await fetch(apiUrl);
-                if (!response.ok) {
-                    throw new Error('فشل في جلب البيانات');
-                }
-                const products = await response.json();
-                
-                // تحديث مصفوف المنتجات العالمي
-                window.products = products; 
-
-                // إعادة عرض المنتجات في الصفحة
-                renderProducts();
-            } catch (error) {
-                console.error('Error fetching products:', error);
-                // عرض بيانات وهمية في حالة فشل جلب البيانات
-                renderProducts(); 
-            }
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('فشل في جلب البيانات');
+                    }
+                    return response.json();
+                })
+                .then(products => {
+                    window.products = products; 
+                    renderProducts();
+                })
+                .catch(error => {
+                    console.error('Error fetching products:', error);
+                    renderProducts();
+                });
         }
-
 
         // --- تحميل الصفحة ---
         document.addEventListener('DOMContentLoaded', function() {
