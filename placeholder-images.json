@@ -1,0 +1,70 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-1",
+      "description": "A beautiful composition of natural oils in artistic bottles.",
+      "imageUrl": "https://images.unsplash.com/photo-1608571424266-edeb9bbefdec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxuYXR1cmFsJTIwb2lsc3xlbnwwfHx8fDE3NjE5NTA0Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "natural oils"
+    },
+    {
+      "id": "hero-2",
+      "description": "A close-up of a dropper with golden oil, highlighting its purity.",
+      "imageUrl": "https://images.unsplash.com/photo-1702475139570-b90434243af2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxvaWwlMjBkcm9wcGVyfGVufDB8fHx8MTc2MTk1MDQyOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "oil dropper"
+    },
+    {
+      "id": "hero-3",
+      "description": "An assortment of oil bottles with various natural ingredients.",
+      "imageUrl": "https://images.unsplash.com/photo-1753376025459-f8dd3017e83e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhc3NvcnRlZCUyMG9pbHN8ZW58MHx8fHwxNzYxOTUwNDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "assorted oils"
+    },
+    {
+      "id": "product-1",
+      "description": "A bottle of premium argan oil.",
+      "imageUrl": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhcmdhbiUyMG9pbHxlbnwwfHx8fDE3NjE5NTA0Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "argan oil"
+    },
+    {
+      "id": "product-2",
+      "description": "A bottle of golden jojoba oil.",
+      "imageUrl": "https://images.unsplash.com/photo-1640958903174-936043ea7c17?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxqb2pvYmElMjBvaWx8ZW58MHx8fHwxNzYxODY3MDQ5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "jojoba oil"
+    },
+    {
+      "id": "product-3",
+      "description": "A bottle of refreshing castor oil.",
+      "imageUrl": "https://images.unsplash.com/photo-1596419900480-7012e6746bcf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjYXN0b3IlMjBvaWx8ZW58MHx8fHwxNzYxODY3MDQ5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "castor oil"
+    },
+    {
+      "id": "product-4",
+      "description": "A bottle of fragrant lavender oil.",
+      "imageUrl": "https://images.unsplash.com/photo-1556760544-74068565f05c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxsYXZlbmRlciUyMG9pbHxlbnwwfHx8fDE3NjE5MjE5MzJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lavender oil"
+    },
+    {
+      "id": "product-5",
+      "description": "A bottle of pure coconut oil.",
+      "imageUrl": "https://images.unsplash.com/photo-1581453883350-288b2c19bea8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjb2NvbnV0JTIwb2lsfGVufDB8fHx8MTc2MTgzMzE4MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "coconut oil"
+    },
+    {
+      "id": "product-6",
+      "description": "A bottle of nourishing almond oil.",
+      "imageUrl": "https://images.unsplash.com/photo-1642189941430-7073f85d7140?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhbG1vbmQlMjBvaWx8ZW58MHx8fHwxNzYxOTUwNDI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "almond oil"
+    },
+    {
+      "id": "product-7",
+      "description": "A bottle of rich olive oil.",
+      "imageUrl": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxvbGl2ZSUyMG9pbHxlbnwwfHx8fDE3NjE5MzU0MDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "olive oil"
+    },
+    {
+      "id": "product-8",
+      "description": "A bottle of tea tree oil.",
+      "imageUrl": "https://images.unsplash.com/photo-1748390101138-79cdaf434020?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0ZWElMjB0cmVlJTIwb2lsfGVufDB8fHx8MTc2MTk1MDQyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tea tree oil"
+    }
+  ]
+}
